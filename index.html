@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <!-- Adding css link -->
+    <link rel="stylesheet" href="style.css">
+    <title>CLOCK</title>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="hour">
+            <div class="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc"></div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; Gyana Ranjan Barik</p>
+        <p>All Rights Reserved</p>
+    </footer>
+    <script ">
+         const sc = document.querySelector(".sec ");
+         const mn = document.querySelector(".min ");
+         const hr = document.querySelector(".hour ");
+         setInterval(function(){
+           let time  = new Date();
+           let secs = time.getSeconds() * 6;
+           let mins = time.getMinutes() * 6;
+           let hrs = time.getHours() * 30;
+           sc.style.transform = `rotateZ(${secs}deg)`;
+           mn.style.transform = `rotateZ(${mins}deg)`;
+           hr.style.transform = `rotateZ(${hrs+(mins/12)}deg)`;
+         });
+    </script>
+</body>
+
+</html>
