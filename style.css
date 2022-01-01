@@ -41,34 +41,31 @@ body {
     position: absolute;
 }
 
-.clock .hour,
-.hr {
+.clock .hour {
     width: 160px;
     height: 160px;
 }
 
-.clock .min,
-.mn {
+.clock .min {
     width: 190px;
     height: 190px;
 }
 
-.clock .sec,
-.sc {
+.clock .sec {
     width: 230px;
     height: 230px;
 }
 
-.hr,
-.mn,
-.sc {
+.hour,
+.min,
+.sec {
     display: flex;
     justify-content: center;
     position: absolute;
     border-radius: 50%;
 }
 
-.hr::before {
+.hour::before {
     content: '';
     position: absolute;
     width: 8px;
@@ -78,7 +75,7 @@ body {
     border-radius: 6px 6px 0 0;
 }
 
-.mn::before {
+.min::before {
     content: '';
     position: absolute;
     width: 4px;
@@ -88,7 +85,7 @@ body {
     border-radius: 6px 6px 0 0;
 }
 
-.sc::before {
+.sec::before {
     content: '';
     position: absolute;
     width: 2px;
