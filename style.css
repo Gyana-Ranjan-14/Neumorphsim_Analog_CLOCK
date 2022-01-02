@@ -13,8 +13,9 @@ body {
 }
 
 .clock {
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
+    margin-top: -272px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,6 +94,46 @@ body {
     background: #ffbf10;
     z-index: 12;
     border-radius: 6px 6px 0 0;
+}
+
+
+/* Adding css to the clock format */
+
+:root {
+    --biggest-font-size: 3rem;
+    --font-medium: 500;
+    --small-font-size: 3rem;
+    --title-color: hsl(var(--hue-color), 53%, 15%);
+    --tiny-font-size: .625rem;
+    --mb-0-25: .45rem;
+}
+
+.clock_text {
+    display: flex;
+    justify-content: center;
+    margin-top: 560px;
+    color: #10ffdf;
+}
+
+.clock_text-hour,
+.clock_text-min {
+    font-size: var(--biggest-font-size);
+    font-weight: var(--font-medium);
+    color: #bdb222;
+}
+
+.clock_text-ampm {
+    font-size: var(--tiny-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    margin-left: var(--mb-0-25);
+}
+
+.clock_date {
+    text-align: center;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    color: #bdb222;
 }
 
 footer {

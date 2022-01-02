@@ -24,6 +24,19 @@
         </div>
         <div class="sec">
         </div>
+
+        <div>
+            <div class="clock_text">
+                <div class="clock_text-hour" id="text-hour"></div>
+                <div class="clock_text-min" id="text-min"></div>
+                <div class="clock_text-ampm" id="text-ampm"></div>
+            </div>
+            <div class="clock_date">
+                <span id="date-day"></span>
+                <span id="date-month"></span>
+                <span id="date-year"></span>
+            </div>
+        </div>
     </div>
     <footer>
         <p>&copy; Gyana Ranjan Barik</p>
@@ -42,6 +55,62 @@
            mn.style.transform = `rotateZ(${mins}deg)`;
            hr.style.transform = `rotateZ(${hrs+(mins/12)}deg)`;
          });
+
+
+        //  For digi clock
+        const texthour = document.getElementById('text-hour'),
+        textmin = document.getElementById('text-min'),
+        textAmPm = document.getElementById('text-ampm'),
+        dateDay=document.getElementById('date-day'),
+        datemonth=document.getElementById('date-month'),
+        dateyear=document.getElementById('date-year')
+
+     const   clocktext = () =>
+     {
+        let date = new Date();
+        let hh = date.getHours(),ampm
+        let mm = date.getMinutes(),
+        day = date.getDate(),
+        month = date.getMonth(),
+        year = date.getFullYear()
+
+        // we changes the hours from 24 to 12 and establish wheather am or pm
+        if(hh>=12)
+        {
+            hh=hh-12;
+            ampm='pm';
+        }
+        else
+        {
+            ampm='Am'
+        }
+//   We detect when its 0 Am and transform to 12 AM
+        if(hh==0) {hh==12}
+
+        // Show a zero before hours
+            if(hh<10){hh=`0${hh}`}
+
+        // Show time
+        texthour.innerHTML = `${hh}:`
+
+        // Show a zero before the min
+        if(mm<10){mm=`0${mm}`}
+
+        // Show minutes
+        textmin.innerHTML = `${mm}`
+
+        // Show am or pm
+        textAmPm.innerHTML =ampm;
+
+        // We get the months and years and show it
+        let months = ['jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+
+        // Show the day the month and the year
+        dateDay.innerHTML =day;
+        datemonth.innerHTML =`${months[month]},`;
+        dateyear.innerHTML = year;
+     }
+     setInterval(clocktext,1000) //1000 = 1s
     </script>
 </body>
 
